@@ -15,7 +15,9 @@ import {
   CheckCircle,
   Heart,
   QrCode,
-  Search
+  Search,
+  Coins,
+  Banknote
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -136,9 +138,9 @@ export default function TransferPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-purple-100 to-purple-200">
       {/* Header */}
-      <header className="bg-white/80 backdrop-blur-md border-b border-gray-200 sticky top-0 z-40">
+      <header className="bg-white/80 backdrop-blur-md border-b border-purple-200 sticky top-0 z-40">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center h-16">
             <Button
@@ -150,10 +152,10 @@ export default function TransferPage() {
               <ArrowLeft className="w-4 h-4" />
             </Button>
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-                <Heart className="w-5 h-5 text-white" />
+              <div className="w-8 h-8 bg-gradient-to-r from-purple-600 to-purple-800 rounded-lg flex items-center justify-center">
+                <DollarSign className="w-5 h-5 text-white" />
               </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <span className="text-xl font-bold bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">
                 FinTrust
               </span>
             </div>
@@ -169,14 +171,14 @@ export default function TransferPage() {
               <div key={stepNumber} className="flex items-center">
                 <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
                   step >= stepNumber 
-                    ? 'bg-blue-600 text-white' 
+                    ? 'bg-purple-600 text-white' 
                     : 'bg-gray-200 text-gray-600'
                 }`}>
                   {stepNumber}
                 </div>
                 {stepNumber < 4 && (
                   <div className={`w-16 h-0.5 mx-4 ${
-                    step > stepNumber ? 'bg-blue-600' : 'bg-gray-200'
+                    step > stepNumber ? 'bg-purple-600' : 'bg-gray-200'
                   }`} />
                 )}
               </div>
@@ -194,7 +196,7 @@ export default function TransferPage() {
             <Card className="border-0 shadow-2xl">
               <CardHeader>
                 <CardTitle className="flex items-center">
-                  <User className="w-5 h-5 mr-2 text-blue-600" />
+                  <User className="w-5 h-5 mr-2 text-purple-600" />
                   Para quem você quer transferir?
                 </CardTitle>
                 <CardDescription>
@@ -219,7 +221,7 @@ export default function TransferPage() {
                         whileTap={{ scale: 0.98 }}
                       >
                         <Card 
-                          className="cursor-pointer hover:shadow-md transition-all border-2 hover:border-blue-200"
+                          className="cursor-pointer hover:shadow-md transition-all border-2 hover:border-purple-200"
                           onClick={() => handleUserSelect(user)}
                         >
                           <CardContent className="p-4">
@@ -380,7 +382,7 @@ export default function TransferPage() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
-                <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-6">
+                <div className="bg-gradient-to-r from-purple-50 to-purple-100 rounded-lg p-6">
                   <div className="text-center mb-6">
                     <div className="text-4xl font-bold text-gray-900 mb-2">
                       {formatCurrency(parseFloat(transferData.amount))}
@@ -408,7 +410,7 @@ export default function TransferPage() {
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
                     <span className="text-gray-600">Taxa de transferência</span>
-                    <span className="font-medium text-green-600">Grátis</span>
+                    <span className="font-medium text-purple-600">Grátis</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-gray-600">Tempo de processamento</span>
@@ -416,7 +418,7 @@ export default function TransferPage() {
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-gray-600">Proteção antifraude</span>
-                    <Badge variant="success">
+                    <Badge variant="purple">
                       <Shield className="w-3 h-3 mr-1" />
                       Ativa
                     </Badge>
@@ -430,7 +432,7 @@ export default function TransferPage() {
                   <Button 
                     onClick={handleTransfer}
                     disabled={loading}
-                    className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+                    className="bg-gradient-to-r from-purple-600 to-purple-800 hover:from-purple-700 hover:to-purple-900"
                   >
                     {loading ? 'Processando...' : 'Confirmar Transferência'}
                   </Button>
@@ -481,7 +483,7 @@ export default function TransferPage() {
                 </div>
 
                 <div className="text-center">
-                  <div className="w-24 h-24 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-24 h-24 bg-gradient-to-r from-purple-500 to-purple-700 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Fingerprint className="w-12 h-12 text-white" />
                   </div>
                   <p className="text-gray-600 mb-4">
@@ -490,7 +492,7 @@ export default function TransferPage() {
                   <Button 
                     onClick={handleBiometricConfirm}
                     disabled={loading}
-                    className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+                    className="bg-gradient-to-r from-purple-600 to-purple-800 hover:from-purple-700 hover:to-purple-900"
                   >
                     {loading ? 'Verificando...' : 'Confirmar com Biometria'}
                   </Button>

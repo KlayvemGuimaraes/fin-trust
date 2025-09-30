@@ -15,7 +15,10 @@ import {
   TrendingUp,
   Lock,
   Globe,
-  Heart
+  Heart,
+  DollarSign,
+  Coins,
+  Banknote
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -47,7 +50,7 @@ export default function HomePage() {
       icon: Users,
       title: "Score Comunitário",
       description: "Sistema inovador que combina dados tradicionais com rede de confiança social.",
-      color: "text-blue-600"
+      color: "text-purple-600"
     },
     {
       icon: Zap,
@@ -118,16 +121,16 @@ export default function HomePage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-purple-100 to-purple-200">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
+      <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-purple-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-                <Heart className="w-5 h-5 text-white" />
+              <div className="w-8 h-8 bg-gradient-to-r from-purple-600 to-purple-800 rounded-lg flex items-center justify-center">
+                <DollarSign className="w-5 h-5 text-white" />
               </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <span className="text-xl font-bold bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">
                 FinTrust
               </span>
             </div>
@@ -156,7 +159,7 @@ export default function HomePage() {
             </Badge>
             <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
               Revolucione o
-              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-purple-600 via-purple-700 to-purple-800 bg-clip-text text-transparent">
                 {" "}Sistema Financeiro
               </span>
             </h1>
@@ -183,39 +186,39 @@ export default function HomePage() {
             className="mt-16 relative"
           >
             <div className="relative mx-auto max-w-5xl">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 rounded-3xl blur-3xl opacity-20"></div>
-              <div className="relative bg-white rounded-3xl shadow-2xl p-8 border border-gray-200">
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-purple-600 rounded-3xl blur-3xl opacity-20"></div>
+              <div className="relative bg-white rounded-3xl shadow-2xl p-8 border border-purple-200">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  <Card className="border-2 border-green-200 bg-green-50">
-                    <CardHeader className="pb-3">
-                      <div className="flex items-center justify-between">
-                        <Shield className="w-8 h-8 text-green-600" />
-                        <Badge variant="success">Ativo</Badge>
-                      </div>
-                    </CardHeader>
-                    <CardContent>
-                      <h3 className="font-semibold text-green-800">Antifraude</h3>
-                      <p className="text-sm text-green-600">99.8% de precisão</p>
-                    </CardContent>
-                  </Card>
-                  
-                  <Card className="border-2 border-blue-200 bg-blue-50">
-                    <CardHeader className="pb-3">
-                      <div className="flex items-center justify-between">
-                        <Users className="w-8 h-8 text-blue-600" />
-                        <Badge variant="fintrust">Score: 750</Badge>
-                      </div>
-                    </CardHeader>
-                    <CardContent>
-                      <h3 className="font-semibold text-blue-800">Score Comunitário</h3>
-                      <p className="text-sm text-blue-600">+15 esta semana</p>
-                    </CardContent>
-                  </Card>
-                  
                   <Card className="border-2 border-purple-200 bg-purple-50">
                     <CardHeader className="pb-3">
                       <div className="flex items-center justify-between">
-                        <Zap className="w-8 h-8 text-purple-600" />
+                        <DollarSign className="w-8 h-8 text-purple-600" />
+                        <Badge variant="purple">Ativo</Badge>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <h3 className="font-semibold text-purple-800">Carteira Digital</h3>
+                      <p className="text-sm text-purple-600">R$ 2.847,50</p>
+                    </CardContent>
+                  </Card>
+                  
+                  <Card className="border-2 border-purple-300 bg-purple-100">
+                    <CardHeader className="pb-3">
+                      <div className="flex items-center justify-between">
+                        <Coins className="w-8 h-8 text-purple-700" />
+                        <Badge variant="purple">Score: 750</Badge>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <h3 className="font-semibold text-purple-800">Score Comunitário</h3>
+                      <p className="text-sm text-purple-600">+15 esta semana</p>
+                    </CardContent>
+                  </Card>
+                  
+                  <Card className="border-2 border-purple-400 bg-purple-200">
+                    <CardHeader className="pb-3">
+                      <div className="flex items-center justify-between">
+                        <Banknote className="w-8 h-8 text-purple-800" />
                         <Badge variant="secondary">P2P</Badge>
                       </div>
                     </CardHeader>
@@ -403,7 +406,7 @@ export default function HomePage() {
                   key={index}
                   onClick={() => setCurrentTestimonial(index)}
                   className={`w-3 h-3 rounded-full transition-colors ${
-                    index === currentTestimonial ? 'bg-blue-600' : 'bg-gray-300'
+                    index === currentTestimonial ? 'bg-purple-600' : 'bg-gray-300'
                   }`}
                 />
               ))}
@@ -425,16 +428,12 @@ export default function HomePage() {
               <br />
               Seu Sistema Financeiro?
             </h2>
-            <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl text-purple-100 mb-8 max-w-3xl mx-auto">
               Junte-se a mais de 2.5 milhões de usuários que já transformaram 
               sua vida financeira com o FinTrust.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button variant="secondary" size="xl" className="bg-white text-blue-600 hover:bg-gray-100" onClick={() => router.push('/dashboard')}>
-                <Smartphone className="mr-2 w-5 h-5" />
-                Baixar App
-              </Button>
-              <Button variant="outline" size="xl" className="border-white text-white hover:bg-white hover:text-blue-600" onClick={() => router.push('/dashboard')}>
+            <div className="flex justify-center items-center">
+              <Button variant="outline" size="xl" className="border-white text-white hover:bg-white hover:text-purple-600" onClick={() => router.push('/dashboard')}>
                 <Globe className="mr-2 w-5 h-5" />
                 Acessar Web
               </Button>

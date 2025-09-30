@@ -22,6 +22,10 @@ const badgeVariants = cva(
           "border-transparent bg-danger-500 text-white hover:bg-danger-600",
         fintrust:
           "border-transparent bg-fintrust-500 text-white hover:bg-fintrust-600",
+        purple:
+          "border-transparent bg-purple-500 text-white hover:bg-purple-600",
+        "purple-light":
+          "border-transparent bg-purple-100 text-purple-800 hover:bg-purple-200",
       },
     },
     defaultVariants: {

@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
-import { Eye, EyeOff, Fingerprint, Shield, ArrowLeft, Heart, CheckCircle } from 'lucide-react'
+import { Eye, EyeOff, Fingerprint, Shield, ArrowLeft, Heart, CheckCircle, DollarSign } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -117,7 +117,7 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-purple-100 to-purple-200 flex items-center justify-center p-4">
       <div className="w-full max-w-2xl">
         {/* Header */}
         <motion.div
@@ -127,10 +127,10 @@ export default function RegisterPage() {
           className="text-center mb-8"
         >
           <div className="flex items-center justify-center space-x-2 mb-4">
-            <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl flex items-center justify-center">
-              <Heart className="w-6 h-6 text-white" />
+            <div className="w-10 h-10 bg-gradient-to-r from-purple-600 to-purple-800 rounded-xl flex items-center justify-center">
+              <DollarSign className="w-6 h-6 text-white" />
             </div>
-            <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">
               FinTrust
             </span>
           </div>
@@ -150,14 +150,14 @@ export default function RegisterPage() {
               <div key={step.number} className="flex items-center">
                 <div className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-medium ${
                   currentStep >= step.number 
-                    ? 'bg-blue-600 text-white' 
+                    ? 'bg-purple-600 text-white' 
                     : 'bg-gray-200 text-gray-600'
                 }`}>
                   {currentStep > step.number ? <CheckCircle className="w-5 h-5" /> : step.number}
                 </div>
                 <div className="ml-3 hidden sm:block">
                   <p className={`text-sm font-medium ${
-                    currentStep >= step.number ? 'text-blue-600' : 'text-gray-600'
+                    currentStep >= step.number ? 'text-purple-600' : 'text-gray-600'
                   }`}>
                     {step.title}
                   </p>
@@ -165,7 +165,7 @@ export default function RegisterPage() {
                 </div>
                 {index < steps.length - 1 && (
                   <div className={`w-16 h-0.5 mx-4 ${
-                    currentStep > step.number ? 'bg-blue-600' : 'bg-gray-200'
+                    currentStep > step.number ? 'bg-purple-600' : 'bg-gray-200'
                   }`} />
                 )}
               </div>
@@ -426,7 +426,7 @@ export default function RegisterPage() {
         >
           <p className="text-sm text-gray-600">
             Já tem uma conta?{' '}
-            <a href="/login" className="text-blue-600 hover:text-blue-700 font-medium">
+            <a href="/login" className="text-purple-600 hover:text-purple-700 font-medium">
               Fazer login
             </a>
           </p>

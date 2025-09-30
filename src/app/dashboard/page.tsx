@@ -17,7 +17,10 @@ import {
   AlertTriangle,
   CheckCircle,
   Heart,
-  Zap
+  Zap,
+  DollarSign,
+  Coins,
+  Banknote
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -80,10 +83,10 @@ export default function DashboardPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-purple-50 via-purple-100 to-purple-200 flex items-center justify-center">
         <div className="text-center">
-          <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse">
-            <Heart className="w-8 h-8 text-white" />
+          <div className="w-16 h-16 bg-gradient-to-r from-purple-600 to-purple-800 rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse">
+            <DollarSign className="w-8 h-8 text-white" />
           </div>
           <p className="text-gray-600">Carregando dashboard...</p>
         </div>
@@ -92,22 +95,22 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-purple-100 to-purple-200">
       {/* Header */}
-      <header className="bg-white/80 backdrop-blur-md border-b border-gray-200 sticky top-0 z-40">
+      <header className="bg-white/80 backdrop-blur-md border-b border-purple-200 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-                <Heart className="w-5 h-5 text-white" />
+              <div className="w-8 h-8 bg-gradient-to-r from-purple-600 to-purple-800 rounded-lg flex items-center justify-center">
+                <DollarSign className="w-5 h-5 text-white" />
               </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <span className="text-xl font-bold bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">
                 FinTrust
               </span>
             </div>
             
             <div className="flex items-center space-x-4">
-              <Badge variant="success" className="text-xs">
+              <Badge variant="purple" className="text-xs">
                 <Shield className="w-3 h-3 mr-1" />
                 Seguro
               </Badge>
@@ -142,14 +145,14 @@ export default function DashboardPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <Card className="border-0 shadow-lg bg-gradient-to-br from-blue-500 to-blue-600 text-white">
+            <Card className="border-0 shadow-lg bg-gradient-to-br from-purple-500 to-purple-600 text-white">
               <CardContent className="p-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-blue-100 text-sm">Saldo Atual</p>
+                    <p className="text-purple-100 text-sm">Saldo Atual</p>
                     <p className="text-2xl font-bold">{formatCurrency(wallet?.balance || 0)}</p>
                   </div>
-                  <Wallet className="w-8 h-8 text-blue-200" />
+                  <DollarSign className="w-8 h-8 text-purple-200" />
                 </div>
               </CardContent>
             </Card>
@@ -160,14 +163,14 @@ export default function DashboardPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <Card className="border-0 shadow-lg bg-gradient-to-br from-green-500 to-green-600 text-white">
+            <Card className="border-0 shadow-lg bg-gradient-to-br from-purple-600 to-purple-700 text-white">
               <CardContent className="p-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-green-100 text-sm">Score FinTrust</p>
+                    <p className="text-purple-100 text-sm">Score FinTrust</p>
                     <p className="text-2xl font-bold">{creditScore?.finalScore || 0}</p>
                   </div>
-                  <TrendingUp className="w-8 h-8 text-green-200" />
+                  <Coins className="w-8 h-8 text-purple-200" />
                 </div>
               </CardContent>
             </Card>
@@ -178,7 +181,7 @@ export default function DashboardPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <Card className="border-0 shadow-lg bg-gradient-to-br from-purple-500 to-purple-600 text-white">
+            <Card className="border-0 shadow-lg bg-gradient-to-br from-purple-700 to-purple-800 text-white">
               <CardContent className="p-6">
                 <div className="flex items-center justify-between">
                   <div>
@@ -196,14 +199,14 @@ export default function DashboardPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <Card className="border-0 shadow-lg bg-gradient-to-br from-orange-500 to-orange-600 text-white">
+            <Card className="border-0 shadow-lg bg-gradient-to-br from-purple-800 to-purple-900 text-white">
               <CardContent className="p-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-orange-100 text-sm">Transações</p>
+                    <p className="text-purple-100 text-sm">Transações</p>
                     <p className="text-2xl font-bold">{transactions.length}</p>
                   </div>
-                  <Shield className="w-8 h-8 text-orange-200" />
+                  <Banknote className="w-8 h-8 text-purple-200" />
                 </div>
               </CardContent>
             </Card>
@@ -222,7 +225,7 @@ export default function DashboardPage() {
               <Card className="border-0 shadow-lg">
                 <CardHeader>
                   <CardTitle className="flex items-center">
-                    <Zap className="w-5 h-5 mr-2 text-blue-600" />
+                    <Zap className="w-5 h-5 mr-2 text-purple-600" />
                     Ações Rápidas
                   </CardTitle>
                   <CardDescription>
@@ -233,10 +236,10 @@ export default function DashboardPage() {
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <Button
                       variant="outline"
-                      className="h-20 flex flex-col items-center justify-center space-y-2 hover:bg-blue-50 hover:border-blue-200"
+                      className="h-20 flex flex-col items-center justify-center space-y-2 hover:bg-purple-50 hover:border-purple-200"
                       onClick={handleQuickTransfer}
                     >
-                      <Send className="w-6 h-6 text-blue-600" />
+                      <Send className="w-6 h-6 text-purple-600" />
                       <span className="text-sm font-medium">Transferir</span>
                     </Button>
                     
@@ -446,7 +449,7 @@ export default function DashboardPage() {
               <Card className="border-0 shadow-lg">
                 <CardHeader>
                   <CardTitle className="flex items-center">
-                    <Users className="w-5 h-5 mr-2 text-blue-600" />
+                    <Users className="w-5 h-5 mr-2 text-purple-600" />
                     Rede de Confiança
                   </CardTitle>
                 </CardHeader>
