@@ -231,7 +231,7 @@ export default function CommunityPage() {
               <Card className="border-0 shadow-lg">
                 <CardHeader>
                   <CardTitle className="flex items-center">
-                    <Star className="w-5 h-5 mr-2 text-yellow-500" />
+                    <Star className="w-5 h-5 mr-2 text-purple-600" />
                     Meu Score
                   </CardTitle>
                 </CardHeader>
@@ -292,7 +292,7 @@ export default function CommunityPage() {
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-gray-600">Ranking</span>
-                    <span className="font-bold text-orange-600">#42</span>
+                    <span className="font-bold text-purple-600">#42</span>
                   </div>
                 </CardContent>
               </Card>
@@ -307,7 +307,7 @@ export default function CommunityPage() {
               <Card className="border-0 shadow-lg">
                 <CardHeader>
                   <CardTitle className="flex items-center">
-                    <Award className="w-5 h-5 mr-2 text-yellow-600" />
+                    <Award className="w-5 h-5 mr-2 text-purple-600" />
                     Conquistas
                   </CardTitle>
                 </CardHeader>

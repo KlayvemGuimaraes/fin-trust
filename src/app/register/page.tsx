@@ -407,7 +407,7 @@ export default function RegisterPage() {
                   <Button
                     onClick={handleRegister}
                     disabled={loading}
-                    className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+                    className="bg-gradient-to-r from-purple-600 to-purple-800 hover:from-purple-700 hover:to-purple-900"
                   >
                     {loading ? 'Criando conta...' : 'Criar Conta'}
                   </Button>

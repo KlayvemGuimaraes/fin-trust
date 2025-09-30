@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { 
   ArrowRight, 
   Shield, 
@@ -24,19 +24,13 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Progress } from '@/components/ui/progress'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 
 export default function HomePage() {
   const router = useRouter()
-  const [currentTestimonial, setCurrentTestimonial] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
     setIsVisible(true)
-    const interval = setInterval(() => {
-      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)
-    }, 5000)
-    return () => clearInterval(interval)
   }, [])
 
   const features = [
@@ -62,7 +56,7 @@ export default function HomePage() {
       icon: TrendingUp,
       title: "Inclusão Financeira",
       description: "Democratiza o acesso ao crédito para milhões de brasileiros subavaliados.",
-      color: "text-orange-600"
+      color: "text-purple-600"
     }
   ]
 
@@ -73,29 +67,6 @@ export default function HomePage() {
     { label: "Fraudes Bloqueadas", value: "99.8%", icon: Lock }
   ]
 
-  const testimonials = [
-    {
-      name: "Maria Silva",
-      role: "Empreendedora",
-      avatar: "/avatars/maria.jpg",
-      content: "O FinTrust me deu acesso ao crédito que nunca tive. Minha loja online cresceu 300% em 6 meses!",
-      score: 820
-    },
-    {
-      name: "João Santos",
-      role: "Estudante",
-      avatar: "/avatars/joao.jpg", 
-      content: "Como estudante sem histórico bancário, o score comunitário foi fundamental para conseguir meu primeiro empréstimo.",
-      score: 680
-    },
-    {
-      name: "Ana Costa",
-      role: "Freelancer",
-      avatar: "/avatars/ana.jpg",
-      content: "A segurança é impressionante. Já bloquearam 3 tentativas de fraude na minha conta automaticamente.",
-      score: 750
-    }
-  ]
 
   const steps = [
     {
@@ -137,7 +108,6 @@ export default function HomePage() {
             <div className="hidden md:flex items-center space-x-8">
               <a href="#features" className="text-gray-600 hover:text-gray-900 transition-colors">Recursos</a>
               <a href="#how-it-works" className="text-gray-600 hover:text-gray-900 transition-colors">Como Funciona</a>
-              <a href="#testimonials" className="text-gray-600 hover:text-gray-900 transition-colors">Depoimentos</a>
               <Button variant="outline" size="sm" onClick={() => router.push('/login')}>Entrar</Button>
               <Button variant="gradient" size="sm" onClick={() => router.push('/register')}>Começar Agora</Button>
             </div>
@@ -348,72 +318,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section id="testimonials" className="py-20 bg-gradient-to-br from-blue-50 to-indigo-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Histórias de
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                {" "}Sucesso
-              </span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Veja como o FinTrust está transformando vidas e negócios em todo o Brasil.
-            </p>
-          </motion.div>
-
-          <div className="relative max-w-4xl mx-auto">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentTestimonial}
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -50 }}
-                transition={{ duration: 0.5 }}
-                className="bg-white rounded-3xl shadow-2xl p-8 border border-gray-200"
-              >
-                <div className="flex items-center mb-6">
-                  <Avatar className="w-16 h-16 mr-4">
-                    <AvatarImage src={testimonials[currentTestimonial].avatar} />
-                    <AvatarFallback>{testimonials[currentTestimonial].name[0]}</AvatarFallback>
-                  </Avatar>
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900">{testimonials[currentTestimonial].name}</h3>
-                    <p className="text-gray-600">{testimonials[currentTestimonial].role}</p>
-                    <div className="flex items-center mt-2">
-                      <Star className="w-4 h-4 text-yellow-400 fill-current" />
-                      <span className="ml-1 text-sm font-medium text-gray-700">
-                        Score: {testimonials[currentTestimonial].score}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <blockquote className="text-lg text-gray-700 leading-relaxed italic">
-                  "{testimonials[currentTestimonial].content}"
-                </blockquote>
-              </motion.div>
-            </AnimatePresence>
-            
-            <div className="flex justify-center mt-8 space-x-2">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentTestimonial(index)}
-                  className={`w-3 h-3 rounded-full transition-colors ${
-                    index === currentTestimonial ? 'bg-purple-600' : 'bg-gray-300'
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600">

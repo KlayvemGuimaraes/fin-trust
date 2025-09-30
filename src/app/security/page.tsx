@@ -70,7 +70,7 @@ export default function SecurityPage() {
       case 'critical': return 'text-red-600 bg-red-100'
       case 'high': return 'text-orange-600 bg-orange-100'
       case 'medium': return 'text-yellow-600 bg-yellow-100'
-      case 'low': return 'text-blue-600 bg-blue-100'
+      case 'low': return 'text-purple-600 bg-purple-100'
       default: return 'text-gray-600 bg-gray-100'
     }
   }
@@ -138,7 +138,7 @@ export default function SecurityPage() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 flex items-center justify-center">
         <div className="text-center">
-          <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse">
+          <div className="w-16 h-16 bg-gradient-to-r from-purple-600 to-purple-800 rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse">
             <DollarSign className="w-8 h-8 text-white" />
           </div>
           <p className="text-gray-600">Carregando dados de segurança...</p>
@@ -162,10 +162,10 @@ export default function SecurityPage() {
               <ArrowLeft className="w-4 h-4" />
             </Button>
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-gradient-to-r from-purple-600 to-purple-800 rounded-lg flex items-center justify-center">
                 <DollarSign className="w-5 h-5 text-white" />
               </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <span className="text-xl font-bold bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">
                 FinTrust
               </span>
             </div>
@@ -214,7 +214,7 @@ export default function SecurityPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <Card className="border-0 shadow-lg bg-gradient-to-br from-blue-500 to-blue-600 text-white">
+            <Card className="border-0 shadow-lg bg-gradient-to-br from-purple-500 to-purple-600 text-white">
               <CardContent className="p-6">
                 <div className="flex items-center justify-between">
                   <div>
@@ -468,7 +468,7 @@ export default function SecurityPage() {
                               ? 'bg-green-100 text-green-600'
                               : activity.status === 'blocked'
                               ? 'bg-red-100 text-red-600'
-                              : 'bg-blue-100 text-blue-600'
+                              : 'bg-purple-100 text-purple-600'
                           }`}>
                             {activity.type === 'login' && <Smartphone className="w-5 h-5" />}
                             {activity.type === 'transaction' && <Globe className="w-5 h-5" />}

@@ -263,10 +263,10 @@ export default function DashboardPage() {
                     
                     <Button
                       variant="outline"
-                      className="h-20 flex flex-col items-center justify-center space-y-2 hover:bg-orange-50 hover:border-orange-200"
+                      className="h-20 flex flex-col items-center justify-center space-y-2 hover:bg-purple-50 hover:border-purple-200"
                       onClick={() => router.push('/community')}
                     >
-                      <Plus className="w-6 h-6 text-orange-600" />
+                      <Plus className="w-6 h-6 text-purple-600" />
                       <span className="text-sm font-medium">Mais</span>
                     </Button>
                   </div>
@@ -368,7 +368,7 @@ export default function DashboardPage() {
               <Card className="border-0 shadow-lg">
                 <CardHeader>
                   <CardTitle className="flex items-center">
-                    <Star className="w-5 h-5 mr-2 text-yellow-500" />
+                    <Star className="w-5 h-5 mr-2 text-purple-600" />
                     Score FinTrust
                   </CardTitle>
                   <CardDescription>
