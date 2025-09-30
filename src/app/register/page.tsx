@@ -400,7 +400,7 @@ export default function RegisterPage() {
                 </Button>
                 
                 {currentStep < 3 ? (
-                  <Button onClick={handleNextStep}>
+                  <Button variant="gradient" onClick={handleNextStep}>
                     Próximo
                   </Button>
                 ) : (

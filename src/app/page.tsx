@@ -60,12 +60,15 @@ export default function HomePage() {
     }
   ]
 
-  const stats = [
-    { label: "Usuários Ativos", value: "2.5M+", icon: Users },
-    { label: "Transações Seguras", value: "R$ 15B+", icon: Shield },
-    { label: "Score Médio", value: "750+", icon: TrendingUp },
-    { label: "Fraudes Bloqueadas", value: "99.8%", icon: Lock }
-  ]
+  const personaStory = {
+    name: "Maria Silva",
+    role: "Microempreendedora",
+    location: "São Paulo, SP",
+    avatar: "MS",
+    story: "Maria sempre sonhou em ter sua própria loja de roupas, mas sem histórico bancário, nunca conseguiu um empréstimo. Com o FinTrust, ela construiu sua rede de confiança através de indicações de clientes satisfeitos e hoje tem uma loja online que fatura R$ 15.000/mês.",
+    score: 720,
+    achievements: ["Primeira loja online", "Rede de 50+ clientes", "Score 700+"]
+  }
 
 
   const steps = [
@@ -204,26 +207,65 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="text-center"
-              >
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl mb-4">
-                  <stat.icon className="w-6 h-6 text-white" />
+      {/* Persona Story Section */}
+      <section className="py-20 bg-gradient-to-br from-purple-50 to-purple-100">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Histórias de
+              <span className="bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">
+                {" "}Transformação
+              </span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Veja como o FinTrust está mudando vidas reais através da inclusão financeira
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: isVisible ? 1 : 0, scale: isVisible ? 1 : 0.95 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 border border-purple-200"
+          >
+            <div className="flex flex-col md:flex-row items-center gap-8">
+              <div className="flex-shrink-0">
+                <div className="w-24 h-24 bg-gradient-to-r from-purple-500 to-purple-700 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                  {personaStory.avatar}
                 </div>
-                <div className="text-3xl font-bold text-gray-900 mb-2">{stat.value}</div>
-                <div className="text-gray-600">{stat.label}</div>
-              </motion.div>
-            ))}
-          </div>
+              </div>
+              
+              <div className="flex-1 text-center md:text-left">
+                <div className="mb-4">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-1">{personaStory.name}</h3>
+                  <p className="text-purple-600 font-medium">{personaStory.role}</p>
+                  <p className="text-gray-500 text-sm">{personaStory.location}</p>
+                </div>
+                
+                <div className="flex items-center justify-center md:justify-start gap-2 mb-4">
+                  <Star className="w-5 h-5 text-purple-500 fill-current" />
+                  <span className="text-lg font-semibold text-gray-900">Score: {personaStory.score}</span>
+                </div>
+                
+                <blockquote className="text-lg text-gray-700 leading-relaxed italic mb-6">
+                  "{personaStory.story}"
+                </blockquote>
+                
+                <div className="flex flex-wrap gap-2 justify-center md:justify-start">
+                  {personaStory.achievements.map((achievement, index) => (
+                    <Badge key={index} variant="purple-light" className="text-sm">
+                      {achievement}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -337,7 +379,7 @@ export default function HomePage() {
               sua vida financeira com o FinTrust.
             </p>
             <div className="flex justify-center items-center">
-              <Button variant="outline" size="xl" className="border-white text-white hover:bg-white hover:text-purple-600" onClick={() => router.push('/dashboard')}>
+              <Button variant="outline" size="lg" className="border-2 border-white text-white bg-transparent hover:bg-white hover:text-purple-600 px-8 py-4 text-lg font-semibold min-w-[200px] transition-all duration-300 hover:scale-105 hover:shadow-lg" onClick={() => router.push('/dashboard')}>
                 <Globe className="mr-2 w-5 h-5" />
                 Acessar Web
               </Button>
@@ -362,14 +404,14 @@ export default function HomePage() {
                 de ponta, inclusão social e segurança máxima.
               </p>
               <div className="flex space-x-4">
-                <Button variant="outline" size="sm" className="border-gray-600 text-gray-300 hover:bg-gray-800">
-                  <CreditCard className="w-4 h-4" />
+                <Button variant="outline" size="sm" className="border-gray-600 text-gray-300 hover:bg-gray-800 hover:border-purple-500 transition-all duration-300">
+                  <CreditCard className="w-4 h-4 text-purple-400" />
                 </Button>
-                <Button variant="outline" size="sm" className="border-gray-600 text-gray-300 hover:bg-gray-800">
-                  <Shield className="w-4 h-4" />
+                <Button variant="outline" size="sm" className="border-gray-600 text-gray-300 hover:bg-gray-800 hover:border-purple-500 transition-all duration-300">
+                  <Shield className="w-4 h-4 text-purple-400" />
                 </Button>
-                <Button variant="outline" size="sm" className="border-gray-600 text-gray-300 hover:bg-gray-800">
-                  <Users className="w-4 h-4" />
+                <Button variant="outline" size="sm" className="border-gray-600 text-gray-300 hover:bg-gray-800 hover:border-purple-500 transition-all duration-300">
+                  <Users className="w-4 h-4 text-purple-400" />
                 </Button>
               </div>
             </div>
