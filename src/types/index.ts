@@ -123,8 +123,8 @@ export interface TransferRequest {
   biometricConfirmation?: string
 }
 
-export interface QITechResponse {
+export interface QITechResponse<T = any> {
   success: boolean
-  data: any
+  data: T
   message?: string
 }

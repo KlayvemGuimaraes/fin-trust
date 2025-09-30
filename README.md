@@ -52,10 +52,6 @@ O **FinTrust** combina três pilares inovadores:
 - **IA**: Python + Scikit-learn para detecção de anomalias
 - **APIs**: Integração com QI Tech, SPC/Serasa
 
-## 🎮 **Demo Online**
-
-Acesse nossa demonstração: [**fintrust-demo.vercel.app**](https://fintrust-demo.vercel.app)
-
 ## 🚀 **Executar Localmente**
 
 ```bash

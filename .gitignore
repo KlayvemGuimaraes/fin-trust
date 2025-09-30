@@ -13,8 +13,9 @@
 /.next/
 /out/
 
-# production
+# production builds
 /build
+/dist
 
 # misc
 .DS_Store
@@ -91,12 +92,8 @@ jspm_packages/
 .cache
 .parcel-cache
 
-# Next.js build output
-.next
-
 # Nuxt.js build / generate output
 .nuxt
-dist
 
 # Gatsby files
 .cache/

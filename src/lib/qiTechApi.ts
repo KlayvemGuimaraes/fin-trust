@@ -47,7 +47,8 @@ class QITechApiService {
     } catch (error: any) {
       return {
         success: false,
-        error: error.message || 'Erro de conexão com QI Tech'
+        data: undefined as T,
+        message: error.message || 'Erro de conexão com QI Tech'
       }
     }
   }
